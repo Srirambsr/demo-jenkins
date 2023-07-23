@@ -10,7 +10,7 @@ pipeline{
                 
                 script{
                     
-                    git branch: '/count-app', url: 'https://github.com/Srirambsr/demo-jenkins.git'
+                    git branch: 'count-app', url: 'https://github.com/Srirambsr/demo-jenkins.git'
                 }
             }
         }
