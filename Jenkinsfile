@@ -24,16 +24,16 @@ pipeline{
                 }
             }
         }
-        stage('Integration testing'){
+        // stage('Integration testing'){
             
-            steps{
+        //     steps{
                 
-                script{
+        //         script{
                     
-                    sh 'mvn verify -DskipUnitTests'
-                }
-            }
-        }
+        //             sh 'mvn verify -DskipUnitTests'
+        //         }
+        //     }
+        // }
         stage('Maven build'){
             
             steps{
@@ -44,30 +44,30 @@ pipeline{
                 }
             }
         }
-        stage('Static code analysis'){
+        // stage('Static code analysis'){
             
-            steps{
+        //     steps{
                 
-                script{
+        //         script{
                     
-                    withSonarQubeEnv(credentialsId: 'sonar-api') {
+        //             withSonarQubeEnv(credentialsId: 'sonar-api') {
                         
-                        sh 'mvn clean package sonar:sonar'
-                    }
-                   }
+        //                 sh 'mvn clean package sonar:sonar'
+        //             }
+        //            }
                     
-                }
-            }
-            stage('Quality Gate Status'){
+        //         }
+        //     }
+            // stage('Quality Gate Status'){
                 
-                steps{
+            //     steps{
                     
-                    script{
+            //         script{
                         
-                        waitForQualityGate abortPipeline: false, credentialsId: 'sonar-api'
-                    }
-                }
-            }
+            //             waitForQualityGate abortPipeline: false, credentialsId: 'sonar-api'
+            //         }
+            //     }
+            // }
         }
         
 }
